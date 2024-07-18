@@ -1,0 +1,6 @@
+<ul>
+    @for (item of items; track item.id)
+    {
+        <li #listItems class="item" (click)="onClick(item.link)"> {{ item.title }}</li>
+    }
+</ul>

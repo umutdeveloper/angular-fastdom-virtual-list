@@ -1,0 +1,11 @@
+<cdk-virtual-scroll-viewport [minBufferPx]="50" [maxBufferPx]="100" [itemSize]="10">
+  <ul>
+    <ng-container *cdkVirtualFor="let item of items" [appCdkDynamicHeightDir]="item">
+      @defer (on viewport) {
+        <li app-item [item]="item"></li>
+      } @placeholder {
+        <li></li>
+      }
+    </ng-container>
+  </ul>
+</cdk-virtual-scroll-viewport>

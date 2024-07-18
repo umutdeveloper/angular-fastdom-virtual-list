@@ -1,0 +1,10 @@
+<ul>
+    @for (item of items; track item.id)
+    {
+        @defer (on viewport) {
+            <li app-item [item]="item"></li>
+          } @placeholder {
+            <li></li>
+          }
+    }
+</ul>

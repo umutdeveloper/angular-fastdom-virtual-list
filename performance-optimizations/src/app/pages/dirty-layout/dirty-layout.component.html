@@ -1,0 +1,8 @@
+<ul>
+    @for (item of items; track item.id)
+    {
+        <li #listItems>
+            <a [href]="item.link">{{ item.title }}</a>
+        </li>
+    }
+</ul>

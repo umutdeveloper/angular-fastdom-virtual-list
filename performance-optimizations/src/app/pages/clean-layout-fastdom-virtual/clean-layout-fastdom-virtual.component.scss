@@ -1,0 +1,13 @@
+li {
+  will-change: width, height;
+  min-height: 10px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+cdk-virtual-scroll-viewport {
+  width: auto;
+  height: 100vh;
+  overflow-x: hidden;
+}
