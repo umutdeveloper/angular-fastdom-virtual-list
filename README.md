@@ -6,6 +6,12 @@ Welcome to this repository where we explore performance optimization techniques 
 
 When it comes to performance, especially in technical interviews, it is crucial to provide specific and optimized solutions. In this example project, we focus on methods that enhance DOM manipulation performance, ensuring smooth and efficient user experiences.
 
+## Demo
+
+You can try the live demo of the project at the following address:
+
+[https://umutdeveloper.github.io/angular-fastdom-virtual-list/](https://umutdeveloper.github.io/angular-fastdom-virtual-list/).
+
 ## Key Techniques Used
 
 ### 1. Efficient DOM Manipulation
@@ -32,7 +38,9 @@ To further reduce the number of DOM nodes, review and remove unnecessary nodes, 
 
 ## Performance Results
 
-After implementing and testing these optimizations with **Lighthouse**, we achieved a performance score of **96** with no blocking time remaining. This demonstrates the effectiveness of these techniques.
+After implementing and testing these optimizations with **Lighthouse**, we achieved a performance score of **100** with no blocking time remaining. This demonstrates the effectiveness of these techniques.
+
+![Screenshot of the Lighthouse Result](/lighthouse.png)
 
 ## Conclusion
 
