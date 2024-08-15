@@ -1,27 +1,39 @@
-# PerformanceOptimizations
+# 🌟 A Deep Dive into Handling 10,000 List Items 🌟
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+Welcome to this repository where we explore performance optimization techniques when handling 10,000 list items on the DOM. This project demonstrates how to manipulate DOM elements efficiently, avoiding common pitfalls such as layout thrashing and rendering all items as nodes.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+When it comes to performance, especially in technical interviews, it is crucial to provide specific and optimized solutions. In this example project, we focus on methods that enhance DOM manipulation performance, ensuring smooth and efficient user experiences.
 
-## Code scaffolding
+## Key Techniques Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1. Efficient DOM Manipulation
+When performing read and write operations on the DOM, doing these consecutively can lead to a layout operation for each process, resulting in blocking time. To avoid this:
+- **Step 1:** Perform all read operations first.
+- **Step 2:** Follow with all write operations.
+This approach prevents layout thrashing, as advised in [this source](https://web.dev/articles/avoid-large-complex-layouts-and-layout-thrashing?hl=tr).
 
-## Build
+### 2. Utilizing `will-change` Property
+Since we are modifying the width and height of list item elements, setting the `will-change` property to `width, height` informs the user agent to optimize these changes, improving performance.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 3. Scheduling DOM Operations
+To organize and schedule read/write operations on the DOM efficiently, consider using libraries like **FastDOM** or developing a custom solution. Learn more about FastDOM [here](https://github.com/wilsonpage/fastdom).
 
-## Running unit tests
+### 4. Lazy Loading with `@defer`
+Lazy loading allows us to defer calculations for list items not currently visible on the screen, enhancing performance. The `@defer` block is particularly useful in this context.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 5. Reducing DOM Nodes with Angular CDK Virtual Scroll
+Using `@defer` with `@placeholder` and the "on viewport" option helps, but doesn't reduce the number of DOM nodes. To tackle this:
+- Use **Angular CDK Virtual Scroll** to reduce the number of rendered DOM nodes, boosting performance.
 
-## Running end-to-end tests
+### 6. Minimizing Node Depth
+To further reduce the number of DOM nodes, review and remove unnecessary nodes, which decreases the overall depth and number of nodes rendered.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Performance Results
 
-## Further help
+After implementing and testing these optimizations with **Lighthouse**, we achieved a performance score of **96** with no blocking time remaining. This demonstrates the effectiveness of these techniques.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Conclusion
+
+Performance optimization is a blend of general principles and specific techniques. Different scenarios may require tailored solutions. Explore the project files to see these methods in action and apply them to your own projects.
