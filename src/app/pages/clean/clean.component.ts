@@ -5,13 +5,13 @@ import { CdkDynamicHeightDirective } from './directives/cdk-dynamic-height.direc
 import list from '../../utils/items';
 
 @Component({
-  selector: 'app-clean-layout-fastdom-virtual',
+  selector: 'app-clean',
   standalone: true,
   imports: [ItemComponent, ScrollingModule, CdkDynamicHeightDirective],
-  templateUrl: './clean-layout-fastdom-virtual.component.html',
-  styleUrl: './clean-layout-fastdom-virtual.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './clean.component.html',
+  styleUrl: './clean.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CleanLayoutFastdomVirtualComponent {
+export class CleanComponent {
   items = list;
 }
